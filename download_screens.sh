@@ -1,0 +1,14 @@
+#!/bin/bash
+mkdir -p screens
+
+# Screen 1: Ringkasan (Revised)
+curl -L -o "screens/ringkasan_revised.png" "https://lh3.googleusercontent.com/aida/AP1WRLun6cj0PMErJJVdt6Tg4rh7A020hptk_GpyckcHIY1kr0fv3A8CPLbH60jUvKE_8-LLioqInSjRWheCL4Pu8P0K3SJRtM29njtIyQR_VAOVTle9lRso3lBk_S2YNbHssvZ9OJOBOaV62Mud4eY2GOXZdXxVgFjsdrw2mnfC4h2ef4k7m1JVriBYrEzsDKK0BYAo_8FII-Sa_VHaBKPoqSqMW187uSDLPOv6hNVgH6_aLD7lg4M5hfjpU2vm"
+curl -L -o "screens/ringkasan_revised.html" "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1ODNhMGI5ZGU2OGUwNTc2MDE2NDJiM2M5YTc5EgsSBxCu9cnN5h8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMjM5NTgyMDM0NzA1NzcwODcyNA&filename=&opi=89354086"
+
+# Screen 2: Beri Makan (Revised)
+curl -L -o "screens/beri_makan_revised.png" "https://lh3.googleusercontent.com/aida/AP1WRLuRlUWF7F8_tv0Y_r821UucUvtv_DtbkoZgq9iicvMgm9F4XQmSSJGja3vTIofKas46sg0SsMevXpFptUd_b9jyOnXp4XAYbWLJd4aHaBZ21Kjep9OF-3e7CpqKfhrH07ym-JIg8jZYEeBmAyisiRaPJB6NxF7jPwPVEA-tlZVrZcIrwMigj4yMq_EqGVN_Wo_1m_KbniFX_v-76fr6vHYtjLqxDRkiBKAhg2mkvI9ZYdnsST6b05vLwune"
+curl -L -o "screens/beri_makan_revised.html" "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1ODNhMGI3OGMwNGMwOTI1ZDRlYzhjMzU2ZjRlEgsSBxCu9cnN5h8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMjM5NTgyMDM0NzA1NzcwODcyNA&filename=&opi=89354086"
+
+# Screen 3: Kitten Room (Fixed)
+curl -L -o "screens/kitten_room_fixed.png" "https://lh3.googleusercontent.com/aida/AP1WRLtG9FLZI9d9tYHiynzC3aFKIQ3C4qAZZwXYRkDn2wKOWiMXKRcaIhhLUF7glV__LRjXHMnZU1FgIJ2OfZ60ddO9kPQlqOz-Bi7RI1aWi3AvMISp1QwgdjEsZ90UJkS2zX0GhU_UG9nNMhmnloHyqHGCUASp9c_iXUJYsPckZrkVfysNyy98ejYk-iQi_1OlcHYnEjxq4xiYbX_v2C_7uwdhn_konu_006YFQEVXRoqPccwSQp7K3MNXIho"
+curl -L -o "screens/kitten_room_fixed.html" "https://contribution.usercontent.google.com/download?c=CgthaWRhX2NvZGVmeBJ8Eh1hcHBfY29tcGFuaW9uX2dlbmVyYXRlZF9maWxlcxpbCiVodG1sXzAwMDY1ODNhMjFjYmE3NTMwMDMwMTE3Nzk3MDI2MmU2EgsSBxCu9cnN5h8YAZIBJAoKcHJvamVjdF9pZBIWQhQxMjM5NTgyMDM0NzA1NzcwODcyNA&filename=&opi=89354086"

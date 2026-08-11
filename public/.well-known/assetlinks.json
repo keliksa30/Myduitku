@@ -1,0 +1,8 @@
+[{
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "dev.pages.myduitku.twa",
+        "sha256_cert_fingerprints": ["91:67:8F:BD:AA:61:D8:D1:45:40:75:19:7D:BF:1E:5A:19:17:36:AF:1A:78:99:FB:81:60:F0:8A:33:D3:E9:C6"]
+      }
+    }]
