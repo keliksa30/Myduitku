@@ -104,7 +104,7 @@ export default function Cat({ skin: skinId, mood = "neutral", size = 160, onClic
     if (equippedNecklace && bodyGroup) {
       const img = createImage(
         `/cat-accesories/${equippedNecklace}.svg?v=5`,
-        220, 540, 620, 190
+        200, 500, 640, 200
       );
       bodyGroup.appendChild(img);
     }
