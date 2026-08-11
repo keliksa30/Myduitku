@@ -99,14 +99,15 @@ export default function Cat({ skin: skinId, mood = "neutral", size = 160, onClic
       headOuterGroup.appendChild(img);
     }
 
-    // Necklace: at body area (NOT head!)
-    // Append to bodyGroup so it renders ON TOP of the body but BEHIND the head.
-    if (equippedNecklace && bodyGroup) {
+    // Necklace: at neck area
+    // Body top starts at y≈573, head bottom ~y=600
+    // Append to SVG root so it renders ON TOP of everything (visible over head+body)
+    if (equippedNecklace) {
       const img = createImage(
         `/cat-accesories/${equippedNecklace}.svg?v=5`,
-        200, 500, 640, 200
+        200, 555, 640, 200
       );
-      bodyGroup.appendChild(img);
+      svg.appendChild(img);
     }
   }, [equippedHat, equippedGlasses, equippedNecklace, skinId]);
 
