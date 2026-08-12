@@ -100,14 +100,20 @@ export default function Cat({ skin: skinId, mood = "neutral", size = 160, onClic
     }
 
     // Necklace: at neck area
-    // Body top starts at y≈573, head bottom ~y=600
-    // Append to SVG root so it renders ON TOP of everything (visible over head+body)
-    if (equippedNecklace) {
+    // Insert BEFORE head Outer Group's first child so it renders BELOW the head (under the chin)
+    if (headOuterGroup && equippedNecklace) {
+      const isRibbon = equippedNecklace === "ribbon";
+      const x = isRibbon ? 411 : 281;
+      const y = isRibbon ? 590 : 575;
+      const w = isRibbon ? 220 : 480;
+      const h = isRibbon ? 186 : 255;
+
       const img = createImage(
-        `/cat-accesories/${equippedNecklace}.svg?v=5`,
-        200, 555, 640, 200
+        `/cat-accesories/${equippedNecklace}.svg?v=6`,
+        x, y, w, h
       );
-      svg.appendChild(img);
+      img.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+      headOuterGroup.insertBefore(img, headOuterGroup.firstChild);
     }
   }, [equippedHat, equippedGlasses, equippedNecklace, skinId]);
 
