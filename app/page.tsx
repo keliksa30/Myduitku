@@ -173,24 +173,29 @@ export default function Home() {
           </button>
         </div>
 
-        {/* Top Level Bar (Replaces Sisa Anggaran) */}
-        <div className="absolute top-[4%] left-0 w-full flex justify-center z-10 pointer-events-none">
-          <div className="min-w-[180px] pointer-events-auto">
-            <div className="bg-surface/90 backdrop-blur-md rounded-full px-4 py-2 shadow-sm border border-outline/10 flex flex-col items-center w-full">
-              <span className="text-[10px] text-on-surface-variant leading-tight font-bold mb-1" style={{ fontFamily: 'var(--font-label-md)' }}>Level Kucing</span>
-              <div className="flex items-center justify-center gap-2 w-full">
-                <span className="font-bold text-on-surface text-xs" style={{ fontFamily: 'var(--font-label-md)' }}>Lv. {catLevel}</span>
-                <div className="flex-1 h-2 bg-surface-container-high rounded-full overflow-hidden">
+        {/* Top Level Bar - Sleek Single Row Badge */}
+        <div className="absolute top-[3%] left-0 w-full flex justify-center z-10 pointer-events-none">
+          <div className="pointer-events-auto">
+            <div className="bg-surface/95 backdrop-blur-md rounded-full px-3.5 py-1.5 shadow-md border border-outline/15 flex items-center gap-3 text-xs text-on-surface">
+              {/* Level & XP */}
+              <div className="flex items-center gap-1.5 font-label-md">
+                <span className="font-bold text-primary whitespace-nowrap">Lv. {catLevel}</span>
+                <div className="w-14 sm:w-16 h-2 bg-surface-container-high rounded-full overflow-hidden">
                   <div 
-                    className="h-full bg-primary-container rounded-full transition-all duration-500" 
+                    className="h-full bg-amber-500 rounded-full transition-all duration-500" 
                     style={{ width: `${xpProgress}%` }}
                   ></div>
                 </div>
-                <span className="text-on-surface-variant text-[10px] font-bold whitespace-nowrap" style={{ fontFamily: 'var(--font-label-md)' }}>{xpProgress}%</span>
+                <span className="text-[10px] font-bold text-on-surface-variant whitespace-nowrap">{xpProgress}%</span>
               </div>
-              <div className="mt-1 flex items-center justify-center gap-1 bg-amber-100 text-amber-800 px-3 py-0.5 rounded-full">
-                <span className="material-symbols-outlined text-[12px]">monetization_on</span>
-                <span className="text-[10px] font-bold" style={{ fontFamily: 'var(--font-label-md)' }}>{meowCoins} Coins</span>
+
+              {/* Divider */}
+              <div className="w-[1px] h-3.5 bg-outline/20"></div>
+
+              {/* Coins Badge */}
+              <div className="flex items-center gap-1 font-label-md font-bold text-amber-800 dark:text-amber-300">
+                <span className="material-symbols-outlined text-[15px] text-amber-500">monetization_on</span>
+                <span className="text-xs whitespace-nowrap">{meowCoins} Coins</span>
               </div>
             </div>
           </div>
