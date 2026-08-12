@@ -166,7 +166,7 @@ export default function MeowcapPage() {
     </div>,
 
     // Slide 4: Summary / Share Screen
-    <div key="slide-4" className="h-full flex flex-col items-center justify-start text-center p-6 sm:p-8 pt-10 sm:pt-14 bg-surface border-4 border-primary/20 relative overflow-y-auto scrollbar-hide" ref={slideRef}>
+    <div key="slide-4" className="h-full flex flex-col items-center justify-start text-center p-6 sm:p-8 pt-10 sm:pt-14 pb-24 sm:pb-28 bg-surface border-4 border-primary/20 relative overflow-y-auto scrollbar-hide" ref={slideRef}>
       {/* Decorative corners */}
       <div className="absolute top-0 left-0 w-16 h-16 border-t-8 border-l-8 border-primary rounded-tl-[32px] -mt-2 -ml-2"></div>
       <div className="absolute top-0 right-0 w-16 h-16 border-t-8 border-r-8 border-primary rounded-tr-[32px] -mt-2 -mr-2"></div>
@@ -205,7 +205,7 @@ export default function MeowcapPage() {
       {!isCapturing && (
         <button 
           onClick={handleShare}
-          className="mt-6 mb-10 bg-primary text-on-primary px-8 py-4 rounded-full font-bold font-label-md shadow-lg flex items-center gap-2 hover:bg-surface-tint active:scale-95 transition-all shrink-0"
+          className="mt-6 mb-14 bg-primary text-on-primary px-8 py-4 rounded-full font-bold font-label-md shadow-lg flex items-center gap-2 hover:bg-surface-tint active:scale-95 transition-all shrink-0"
         >
           <span className="material-symbols-outlined">share</span>
           Bagikan ke Story

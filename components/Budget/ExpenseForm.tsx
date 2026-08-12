@@ -139,13 +139,13 @@ export default function ExpenseForm({ onClose }: ExpenseFormProps) {
   const prevMonth = () => setCalendarMonth(new Date(calendarMonth.getFullYear(), calendarMonth.getMonth() - 1, 1));
 
   return (
-    <div className="absolute inset-0 z-[100] flex items-center justify-center p-container-padding animate-slideUp">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 pb-24 sm:pb-28 animate-slideUp">
       <div 
         className="absolute inset-0 bg-surface/80 backdrop-blur-sm z-0"
         onClick={onClose}
       ></div>
 
-      <div className="relative z-10 w-full max-w-[400px] bg-surface rounded-[32px] p-container-padding shadow-2xl shadow-tertiary/20 flex flex-col gap-lg max-h-[90vh] overflow-y-auto">
+      <div className="relative z-10 w-full max-w-[400px] bg-surface rounded-[32px] p-5 sm:p-6 shadow-2xl shadow-tertiary/20 flex flex-col gap-md max-h-[78dvh] sm:max-h-[82vh] overflow-y-auto">
         <div className="flex flex-col items-center gap-sm justify-center mb-sm mt-2">
           <div className="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center shadow-[0_4px_12px_rgba(254,182,196,0.4)] relative">
             {showHearts && (

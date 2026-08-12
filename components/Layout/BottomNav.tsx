@@ -7,7 +7,7 @@ import { triggerHaptic } from "@/lib/utils/interaction";
 export default function BottomNav() {
   const pathname = usePathname();
   
-  if (pathname === "/onboarding") {
+  if (pathname === "/onboarding" || pathname === "/meowcap") {
     return null;
   }
 
