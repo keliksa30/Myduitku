@@ -103,13 +103,13 @@ export default function Cat({ skin: skinId, mood = "neutral", size = 160, onClic
     // Insert BEFORE head Outer Group's first child so it renders BELOW the head (under the chin)
     if (headOuterGroup && equippedNecklace) {
       const isRibbon = equippedNecklace === "ribbon";
-      const x = isRibbon ? 436 : 336;
-      const y = isRibbon ? 592 : 578;
-      const w = isRibbon ? 170 : 370;
-      const h = isRibbon ? 144 : 197;
+      const x = isRibbon ? 451 : 366;
+      const y = isRibbon ? 598 : 588;
+      const w = isRibbon ? 140 : 310;
+      const h = isRibbon ? 119 : 165;
 
       const img = createImage(
-        `/cat-accesories/${equippedNecklace}.svg?v=7`,
+        `/cat-accesories/${equippedNecklace}.svg?v=8`,
         x, y, w, h
       );
       img.setAttribute('preserveAspectRatio', 'xMidYMid meet');

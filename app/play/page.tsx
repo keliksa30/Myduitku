@@ -256,42 +256,50 @@ export default function PlayPage() {
   return (
     <main className={`flex flex-col min-h-dvh pb-24 sm:pb-28 relative overflow-hidden transition-colors duration-500 ${isFeverMode ? 'bg-amber-900/20' : 'bg-surface-container'}`}>
       {/* Header Info */}
-      <div className="flex justify-between items-start px-4 pt-3 pb-1 sm:p-4 w-full max-w-[400px] mx-auto z-10 relative">
-        <div className="flex flex-col gap-1.5">
+      <div className="w-full max-w-[400px] mx-auto px-4 pt-3 pb-1 z-20 relative flex flex-col gap-2">
+        {/* Top Row: Back, Hearts, Best Score */}
+        <div className="flex items-center justify-between w-full">
           <button 
             onClick={() => router.back()}
-            className="text-primary font-label-lg px-3.5 py-1.5 bg-primary/10 rounded-full active:scale-95 transition-transform w-max text-xs sm:text-sm"
+            className="text-primary font-label-lg px-3 py-1 bg-primary/10 rounded-full active:scale-95 transition-transform text-xs font-semibold"
           >
             &larr; Kembali
           </button>
-          <div className="bg-surface border border-outline/20 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-sm flex items-center gap-1">
-            <span className="material-symbols-outlined text-amber-500 text-xs sm:text-sm">emoji_events</span>
-            <span className="font-label-lg text-xs sm:text-sm text-on-surface/70">Best: </span>
-            <span className="font-title-lg font-bold text-xs sm:text-sm text-primary">{bestScore}</span>
-          </div>
+
           {/* Lives display */}
-          <div className="px-2 py-0.5 flex gap-1">
+          <div className="bg-surface border border-outline/20 px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
             {[1, 2, 3].map((l) => (
               <span 
                 key={l} 
-                className={`material-symbols-outlined text-lg sm:text-xl text-error transition-opacity ${l <= lives ? "opacity-100" : "opacity-20 grayscale"}`}
+                className={`material-symbols-outlined text-base sm:text-lg text-error transition-opacity ${l <= lives ? "opacity-100" : "opacity-20 grayscale"}`}
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 favorite
               </span>
             ))}
           </div>
+
+          {/* Best Score */}
+          <div className="bg-surface border border-outline/20 px-3 py-1 rounded-full shadow-sm flex items-center gap-1">
+            <span className="material-symbols-outlined text-amber-500 text-xs">emoji_events</span>
+            <span className="font-label-lg text-xs text-on-surface/70">Best:</span>
+            <span className="font-title-lg font-bold text-xs text-primary">{bestScore}</span>
+          </div>
         </div>
-        <div className="flex gap-2">
-          {combo > 0 && (
-            <div className={`bg-amber-500 text-on-primary px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md flex items-center justify-center animate-combo ${isFeverMode ? 'animate-bounce shadow-amber-500/50 shadow-lg' : ''}`}>
-              <span className="font-title-lg font-bold text-sm sm:text-base">{combo}x</span>
-              <span className="text-[10px] sm:text-xs ml-1 font-bold">HIT</span>
-            </div>
-          )}
-          <div className="bg-primary text-on-primary px-4 py-1.5 sm:px-6 sm:py-2 rounded-full shadow-md flex flex-col items-center">
-            <span className="font-label-lg text-[10px] sm:text-xs opacity-80">Skor</span>
-            <span className="font-title-xl font-bold text-base sm:text-lg">{score}</span>
+
+        {/* Second Row: Combo & Score */}
+        <div className="flex items-center justify-between w-full px-1">
+          <div>
+            {combo > 0 && (
+              <div className={`bg-amber-500 text-on-primary px-3 py-1 rounded-full shadow-md flex items-center justify-center animate-combo ${isFeverMode ? 'animate-bounce shadow-amber-500/50 shadow-lg' : ''}`}>
+                <span className="font-title-lg font-bold text-xs">{combo}x</span>
+                <span className="text-[10px] ml-1 font-bold">HIT</span>
+              </div>
+            )}
+          </div>
+          <div className="bg-primary text-on-primary px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
+            <span className="font-label-lg text-xs opacity-80">Skor:</span>
+            <span className="font-title-xl font-bold text-sm sm:text-base">{score}</span>
           </div>
         </div>
       </div>
@@ -301,7 +309,7 @@ export default function PlayPage() {
         {/* Flash overlay */}
         {flashLevel > 0 && <div key={`flash-${flashLevel}`} className="absolute inset-0 animate-flash pointer-events-none rounded-3xl" />}
 
-        <div className="w-full max-w-[400px] relative mt-20 sm:mt-24">
+        <div className="w-full max-w-[400px] relative mt-24 sm:mt-28">
           
           {/* Cat watching from behind (Sibling to the board to render behind it) */}
           <div className="absolute bottom-[100%] left-0 w-full flex flex-col items-center pointer-events-none -mb-[95px] sm:-mb-[110px] z-10">
