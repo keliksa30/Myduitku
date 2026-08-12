@@ -5,6 +5,8 @@ import { useStore } from "@/lib/store";
 import IncomeSourcesManager from "@/components/Budget/IncomeSourcesManager";
 import CatPicker from "@/components/Cat/CatPicker";
 import { useRouter } from "next/navigation";
+import { sendCatNotification } from "@/components/NotificationManager";
+import { toast } from "sonner";
 
 export default function SettingsPage() {
   const mounted = useMounted();
@@ -24,18 +26,50 @@ export default function SettingsPage() {
     const enabled = e.target.checked;
     if (enabled) {
       if (!("Notification" in window)) {
-        alert("Browser Anda tidak mendukung notifikasi.");
+        toast.error("Browser Anda tidak mendukung notifikasi.");
         return;
       }
       const permission = await Notification.requestPermission();
       if (permission === "granted") {
         setNotificationEnabled(true);
+        toast.success("Notifikasi pengingat harian aktif!");
+        sendCatNotification(
+          "Pengingat Aktif! 🐾",
+          "Meow! Notifikasi pengingat harian berhasil diaktifkan."
+        );
       } else {
-        alert("Izin notifikasi ditolak. Silakan izinkan melalui pengaturan browser.");
+        toast.error("Izin notifikasi ditolak. Silakan izinkan melalui pengaturan browser.");
         setNotificationEnabled(false);
       }
     } else {
       setNotificationEnabled(false);
+      toast.info("Notifikasi dinonaktifkan.");
+    }
+  }
+
+  async function handleTestNotification() {
+    if (!("Notification" in window)) {
+      toast.error("Browser Anda tidak mendukung notifikasi.");
+      return;
+    }
+
+    if (Notification.permission !== "granted") {
+      const permission = await Notification.requestPermission();
+      if (permission !== "granted") {
+        toast.error("Izin notifikasi belum diberikan di browser.");
+        return;
+      }
+    }
+
+    const sent = await sendCatNotification(
+      "Tes Notifikasi MyDuitku 🐾",
+      "Meow! Notifikasi berfungsi dengan baik! Jangan lupa catat keuanganmu hari ini 🐟"
+    );
+
+    if (sent) {
+      toast.success("Notifikasi tes terkirim!");
+    } else {
+      toast.error("Gagal mengirim notifikasi tes. Cek izin browser.");
     }
   }
 
@@ -132,15 +166,26 @@ export default function SettingsPage() {
           </div>
 
           {notificationEnabled && (
-            <div className="flex flex-col gap-1 mt-2 animate-slideUp">
-              <label htmlFor="notif-time" className="font-label-md text-on-surface-variant">Jam Pengingat</label>
-              <input 
-                id="notif-time"
-                type="time" 
-                value={notificationTime} 
-                onChange={(e) => setNotificationTime(e.target.value)} 
-                className="bg-surface-container border border-outline/20 rounded-lg px-4 py-3 text-on-surface w-full font-body-md focus:outline-none focus:border-primary transition-all"
-              />
+            <div className="flex flex-col gap-3 mt-2 animate-slideUp">
+              <div className="flex flex-col gap-1">
+                <label htmlFor="notif-time" className="font-label-md text-on-surface-variant">Jam Pengingat</label>
+                <input 
+                  id="notif-time"
+                  type="time" 
+                  value={notificationTime} 
+                  onChange={(e) => setNotificationTime(e.target.value)} 
+                  className="bg-surface-container border border-outline/20 rounded-lg px-4 py-3 text-on-surface w-full font-body-md focus:outline-none focus:border-primary transition-all"
+                />
+              </div>
+
+              <button
+                type="button"
+                onClick={handleTestNotification}
+                className="w-full bg-primary/10 border border-primary/20 text-primary py-2.5 rounded-xl font-label-md font-bold text-xs hover:bg-primary/20 transition-colors flex items-center justify-center gap-1.5 active:scale-[0.98]"
+              >
+                <span className="material-symbols-outlined text-[16px]">notifications_active</span>
+                Uji Coba Notifikasi Sekarang 🐾
+              </button>
             </div>
           )}
 
