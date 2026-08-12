@@ -254,27 +254,27 @@ export default function PlayPage() {
   };
 
   return (
-    <main className={`flex flex-col min-h-screen relative overflow-hidden transition-colors duration-500 ${isFeverMode ? 'bg-amber-900/20' : 'bg-surface-container'}`}>
+    <main className={`flex flex-col min-h-dvh pb-24 sm:pb-28 relative overflow-hidden transition-colors duration-500 ${isFeverMode ? 'bg-amber-900/20' : 'bg-surface-container'}`}>
       {/* Header Info */}
-      <div className="flex justify-between items-start p-4 sm:p-6 w-full max-w-[400px] mx-auto z-10 relative">
-        <div className="flex flex-col gap-2">
+      <div className="flex justify-between items-start px-4 pt-3 pb-1 sm:p-4 w-full max-w-[400px] mx-auto z-10 relative">
+        <div className="flex flex-col gap-1.5">
           <button 
             onClick={() => router.back()}
-            className="text-primary font-label-lg px-4 py-2 bg-primary/10 rounded-full active:scale-95 transition-transform w-max"
+            className="text-primary font-label-lg px-3.5 py-1.5 bg-primary/10 rounded-full active:scale-95 transition-transform w-max text-xs sm:text-sm"
           >
             &larr; Kembali
           </button>
-          <div className="bg-surface border border-outline/20 px-4 py-2 rounded-full shadow-sm mt-2 flex items-center gap-1">
-            <span className="material-symbols-outlined text-amber-500 text-sm">emoji_events</span>
-            <span className="font-label-lg text-on-surface/70">Best: </span>
-            <span className="font-title-lg font-bold text-primary">{bestScore}</span>
+          <div className="bg-surface border border-outline/20 px-3 py-1 sm:px-4 sm:py-1.5 rounded-full shadow-sm flex items-center gap-1">
+            <span className="material-symbols-outlined text-amber-500 text-xs sm:text-sm">emoji_events</span>
+            <span className="font-label-lg text-xs sm:text-sm text-on-surface/70">Best: </span>
+            <span className="font-title-lg font-bold text-xs sm:text-sm text-primary">{bestScore}</span>
           </div>
           {/* Lives display */}
-          <div className="px-4 py-1 flex gap-1">
+          <div className="px-2 py-0.5 flex gap-1">
             {[1, 2, 3].map((l) => (
               <span 
                 key={l} 
-                className={`material-symbols-outlined text-xl text-error transition-opacity ${l <= lives ? "opacity-100" : "opacity-20 grayscale"}`}
+                className={`material-symbols-outlined text-lg sm:text-xl text-error transition-opacity ${l <= lives ? "opacity-100" : "opacity-20 grayscale"}`}
                 style={{ fontVariationSettings: "'FILL' 1" }}
               >
                 favorite
@@ -284,47 +284,47 @@ export default function PlayPage() {
         </div>
         <div className="flex gap-2">
           {combo > 0 && (
-            <div className={`bg-amber-500 text-on-primary px-4 py-2 rounded-full shadow-md flex items-center justify-center animate-combo ${isFeverMode ? 'animate-bounce shadow-amber-500/50 shadow-lg' : ''}`}>
-              <span className="font-title-lg font-bold">{combo}x</span>
-              <span className="text-xs ml-1 font-bold">HIT</span>
+            <div className={`bg-amber-500 text-on-primary px-3 py-1.5 sm:px-4 sm:py-2 rounded-full shadow-md flex items-center justify-center animate-combo ${isFeverMode ? 'animate-bounce shadow-amber-500/50 shadow-lg' : ''}`}>
+              <span className="font-title-lg font-bold text-sm sm:text-base">{combo}x</span>
+              <span className="text-[10px] sm:text-xs ml-1 font-bold">HIT</span>
             </div>
           )}
-          <div className="bg-primary text-on-primary px-6 py-2 rounded-full shadow-md flex flex-col items-center">
-            <span className="font-label-lg opacity-80">Skor</span>
-            <span className="font-title-xl font-bold">{score}</span>
+          <div className="bg-primary text-on-primary px-4 py-1.5 sm:px-6 sm:py-2 rounded-full shadow-md flex flex-col items-center">
+            <span className="font-label-lg text-[10px] sm:text-xs opacity-80">Skor</span>
+            <span className="font-title-xl font-bold text-base sm:text-lg">{score}</span>
           </div>
         </div>
       </div>
 
       {/* Game Board (Meja) */}
-      <div className={`flex-1 w-full flex flex-col items-center justify-center p-4 relative z-0 transition-transform ${isShaking ? 'animate-shake-gentle' : ''}`}>
+      <div className={`flex-1 w-full flex flex-col items-center justify-center px-4 relative z-0 transition-transform ${isShaking ? 'animate-shake-gentle' : ''}`}>
         {/* Flash overlay */}
         {flashLevel > 0 && <div key={`flash-${flashLevel}`} className="absolute inset-0 animate-flash pointer-events-none rounded-3xl" />}
 
-        <div className="w-full max-w-[400px] relative mt-[180px] sm:mt-[220px]">
+        <div className="w-full max-w-[400px] relative mt-20 sm:mt-24">
           
           {/* Cat watching from behind (Sibling to the board to render behind it) */}
-          <div className="absolute bottom-[100%] left-0 w-full flex flex-col items-center pointer-events-none -mb-[120px] sm:-mb-[140px] z-10">
+          <div className="absolute bottom-[100%] left-0 w-full flex flex-col items-center pointer-events-none -mb-[95px] sm:-mb-[110px] z-10">
             {/* Speech Bubble */}
-            <div className="relative mb-2 w-max max-w-[280px] bg-surface border border-outline/30 rounded-2xl p-3 shadow-md animate-fade-in z-20 pointer-events-auto">
-              <p className="font-body-md text-on-surface text-xs font-medium leading-relaxed text-center">
+            <div className="relative mb-1 w-max max-w-[260px] sm:max-w-[280px] bg-surface border border-outline/30 rounded-2xl p-2.5 sm:p-3 shadow-md animate-fade-in z-20 pointer-events-auto">
+              <p className="font-body-md text-on-surface text-[11px] sm:text-xs font-medium leading-tight text-center">
                 Cari koin sebanyak-banyaknya, hindari petasan biar ga meleduk!
               </p>
               {/* Bubble Tail */}
-              <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-[1px] border-8 border-transparent border-t-surface drop-shadow-sm" />
+              <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-[1px] border-6 sm:border-8 border-transparent border-t-surface drop-shadow-sm" />
             </div>
 
             {/* Cat Image */}
             <div className={`relative z-10 opacity-95 transition-transform ${isFeverMode ? 'scale-110 drop-shadow-[0_0_15px_rgba(251,176,59,0.8)]' : ''}`}>
-              <Cat mood={catMood} skin={catSkin} size={220} />
+              <Cat mood={catMood} skin={catSkin} size={190} />
             </div>
           </div>
 
           {/* The Board */}
-          <div className={`w-full h-[300px] sm:h-[360px] rounded-3xl p-4 shadow-lg border-b-[12px] relative z-20 transition-colors duration-500 ${isFeverMode ? 'bg-[#7a3b1a] border-[#4a200a]' : 'bg-[#8A5A3C] border-[#5A3822]'}`}>
+          <div className={`w-full h-[270px] sm:h-[320px] rounded-3xl p-3 sm:p-4 shadow-lg border-b-[10px] sm:border-b-[12px] relative z-20 transition-colors duration-500 ${isFeverMode ? 'bg-[#7a3b1a] border-[#4a200a]' : 'bg-[#8A5A3C] border-[#5A3822]'}`}>
             
             {/* Grid Layout */}
-          <div className="grid grid-cols-3 grid-rows-2 w-full h-full gap-4 relative">
+          <div className="grid grid-cols-3 grid-rows-2 w-full h-full gap-3 sm:gap-4 relative">
             {[0, 1, 2, 3, 4, 5].map((slot) => {
               const item = items.find((i) => i.slot === slot);
 
@@ -339,7 +339,7 @@ export default function PlayPage() {
                 >
                   {/* Item Image */}
                   {item && (
-                    <div className={`w-24 h-24 sm:w-28 sm:h-28 animate-fade-in relative ${item.type === 'emas' ? 'drop-shadow-[0_0_12px_rgba(255,215,0,0.9)] scale-110' : 'drop-shadow-md'}`}>
+                    <div className={`w-20 h-20 sm:w-24 sm:h-24 animate-fade-in relative ${item.type === 'emas' ? 'drop-shadow-[0_0_12px_rgba(255,215,0,0.9)] scale-110' : 'drop-shadow-md'}`}>
                       <Image 
                         src={item.type === 'emas' ? `/games/koin.svg` : `/games/${item.type}.svg`} 
                         alt={item.type}
