@@ -104,12 +104,12 @@ export default function Cat({ skin: skinId, mood = "neutral", size = 160, onClic
     if (headOuterGroup && equippedNecklace) {
       const isRibbon = equippedNecklace === "ribbon";
       const x = isRibbon ? 451 : 366;
-      const y = isRibbon ? 598 : 588;
+      const y = isRibbon ? 620 : 612;
       const w = isRibbon ? 140 : 310;
       const h = isRibbon ? 119 : 165;
 
       const img = createImage(
-        `/cat-accesories/${equippedNecklace}.svg?v=8`,
+        `/cat-accesories/${equippedNecklace}.svg?v=9`,
         x, y, w, h
       );
       img.setAttribute('preserveAspectRatio', 'xMidYMid meet');
